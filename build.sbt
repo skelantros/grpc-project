@@ -29,3 +29,10 @@ libraryDependencies ++= Seq(
 )
 
 scalacOptions += "-Dorg.slf4j.simpleLogger.defaultLogLevel=INFO"
+
+assembly/mainClass := Some("server.Server")
+
+assembly/assemblyMergeStrategy := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x => MergeStrategy.deduplicate
+}
