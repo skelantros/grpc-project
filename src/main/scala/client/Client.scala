@@ -26,7 +26,7 @@ object Client extends App {
             sys.exit()
     }
 
-    val channel = ManagedChannelBuilder.forAddress("skel-grpc-example.onrender.com", 7352).usePlaintext().build()
+    val channel = ManagedChannelBuilder.forAddress("skel-grpc-example.onrender.com", 7352).build()
     val stub = BookServiceGrpc.stub(channel)
 
     clientRequest.response(stub) onComplete {
