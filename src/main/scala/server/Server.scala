@@ -11,7 +11,7 @@ object Server extends App {
     DBs.setup()
 
     private val server: GrpcServer =
-        ServerBuilder.forPort(8080).addService(BookServiceGrpc.bindService(new ServiceImpl, ec)).build().start()
+        ServerBuilder.forPort(7352).addService(BookServiceGrpc.bindService(new ServiceImpl, ec)).build().start()
 
     sys.addShutdownHook {
         server.shutdown()

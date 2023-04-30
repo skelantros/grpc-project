@@ -16,7 +16,7 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "io.grpc" % "grpc-netty" % scalapb.compiler.Version.grpcJavaVersion,
+  "io.grpc" % "grpc-netty-shaded" % scalapb.compiler.Version.grpcJavaVersion,
   //"io.netty" % "netty-tcnative-boringssl-static" % "2.0.20.Final",
   "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapb.compiler.Version.scalapbVersion
 )
@@ -24,15 +24,15 @@ libraryDependencies ++= Seq(
 libraryDependencies ++= Seq(
   "org.scalikejdbc" %% "scalikejdbc" % "4.0.0",
   "org.scalikejdbc" %%  "scalikejdbc-config"  % "4.0.0",
-  "org.postgresql" % "postgresql" % "42.6.0",
-  "ch.qos.logback" % "logback-classic" % "1.4.6"
+  "org.postgresql" % "postgresql" % "42.6.0"
+  //"ch.qos.logback" % "logback-classic" % "1.4.6"
 )
 
 scalacOptions += "-Dorg.slf4j.simpleLogger.defaultLogLevel=INFO"
 
 assembly/mainClass := Some("server.Server")
 
-assembly/assemblyMergeStrategy := {
-  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
-  case x => MergeStrategy.deduplicate
-}
+//assembly/assemblyMergeStrategy := {
+//  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+//  case x => MergeStrategy.deduplicate
+//}
